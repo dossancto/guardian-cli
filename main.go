@@ -1,7 +1,7 @@
 package main
 
 import (
-	"fmt"
+	"os"
 	"path/filepath"
 	"strings"
 
@@ -10,9 +10,17 @@ import (
 )
 
 func main() {
+	args := os.Args[1:]
+
 	inSlnProject, slnNameFile := validations.ExistsSln()
+
 	slnName := strings.TrimSuffix(slnNameFile, filepath.Ext(slnNameFile))
-  fmt.Println(slnName)
+
+	if len(args) > 0 {
+		cmd := args[0]
+		generate.RunCommand(cmd, slnName)
+    return
+	}
 
 	generate.ListActions(inSlnProject, slnName)
 }

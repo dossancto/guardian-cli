@@ -21,7 +21,6 @@ func GenGuardianProject(projectName string) {
 
 func RunGuardianProject(slnName string) {
 	os.Setenv("TERM", "xterm-256color")
-	log.Println(slnName)
 	cmd := exec.Command("dotnet", "run", "--project", slnName+".UI")
 
 	stdout, err := cmd.StdoutPipe()

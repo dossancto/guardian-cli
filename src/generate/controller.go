@@ -3,6 +3,7 @@ package generate
 import (
 	"errors"
 	"fmt"
+	"log"
 
 	"github.com/lu-css/aspgen/src/general"
 	"github.com/manifoldco/promptui"
@@ -17,7 +18,6 @@ var defaultTempalte = &promptui.SelectTemplates{
 
 func ListActions(inSlnProject bool, slnName string) {
 	inSlnActions := []string{
-		"new",
 		"run",
 	}
 
@@ -48,11 +48,17 @@ func ListActions(inSlnProject bool, slnName string) {
 		return
 	}
 
-	switch actions[i] {
+	RunCommand(actions[i], slnName)
+}
+
+func RunCommand(command string, slnName string) {
+	switch command {
 	case "init":
 		genGuardianProject()
 	case "run":
 		RunGuardianProject(slnName)
+	default:
+		log.Fatal("Command not found")
 	}
 }
 
