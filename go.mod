@@ -1,4 +1,4 @@
-module github.com/lu-css/aspgen
+module github.com/lu-css/guardian-cli
 
 go 1.19
 

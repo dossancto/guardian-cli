@@ -5,8 +5,8 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/lu-css/aspgen/src/generate"
-	"github.com/lu-css/aspgen/src/validations"
+	"github.com/lu-css/guardian-cli/src/generate"
+	"github.com/lu-css/guardian-cli/src/validations"
 )
 
 func main() {

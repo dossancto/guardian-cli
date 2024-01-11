@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/lu-css/aspgen/src/general"
+	"github.com/lu-css/guardian-cli/src/general"
 	"github.com/manifoldco/promptui"
 )
 

@@ -2,7 +2,7 @@ package generate
 
 import (
 	"fmt"
-	"github.com/lu-css/aspgen/src/general"
+	"github.com/lu-css/guardian-cli/src/general"
 	"os/exec"
 )
 
