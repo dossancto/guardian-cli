@@ -6,6 +6,9 @@ import (
 	"log"
 	"os"
 	"os/exec"
+	"strings"
+
+	"github.com/fatih/color"
 )
 
 func GenGuardianProject(projectName string) {
@@ -34,7 +37,14 @@ func RunGuardianProject(slnName string) {
 	scanner := bufio.NewScanner(stdout)
 	for scanner.Scan() {
 		text := scanner.Text()
+		if strings.Contains(text, "info: ") {
+			color.Set(color.FgGreen)
+			color.Set(color.BgBlack)
+		} else {
+			color.Set(color.FgWhite)
+		}
 		fmt.Println(text)
+		color.Unset()
 	}
 
 	if err := scanner.Err(); err != nil {
