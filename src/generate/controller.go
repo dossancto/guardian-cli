@@ -19,6 +19,7 @@ var defaultTempalte = &promptui.SelectTemplates{
 func ListActions(inSlnProject bool, slnName string) {
 	inSlnActions := []string{
 		"run",
+		"migrate",
 	}
 
 	notInSlnActions := []string{
@@ -57,6 +58,8 @@ func RunCommand(command string, slnName string) {
 		genGuardianProject()
 	case "run":
 		RunGuardianProject(slnName)
+	case "migrate":
+		migrateProject(slnName)
 	default:
 		log.Fatal("Command not found")
 	}
@@ -84,4 +87,33 @@ func genGuardianProject() {
 	}
 
 	GenGuardianProject(result)
+}
+
+func migrateProject(slnName string) {
+	actions := []string{
+		"new migration",
+		"update",
+	}
+
+	prompt := promptui.Select{
+		Label:     "What you want to do",
+		Items:     actions,
+		Templates: defaultTempalte,
+		Size:      8,
+	}
+
+	i, _, err := prompt.Run()
+
+	if err != nil {
+		fmt.Printf("Prompt failed %v\n", err)
+		general.Exit()
+		return
+	}
+
+	switch i {
+	case (0):
+		return
+	case (1):
+		UpdateDatabase(slnName)
+	}
 }

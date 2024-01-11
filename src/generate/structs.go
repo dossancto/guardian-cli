@@ -2,8 +2,9 @@ package generate
 
 import (
 	"fmt"
-	"github.com/lu-css/guardian-cli/src/general"
 	"os/exec"
+
+	"github.com/lu-css/guardian-cli/src/general"
 )
 
 type AspController struct {
