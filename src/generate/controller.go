@@ -87,6 +87,8 @@ func genGuardianProject() {
 		return
 	}
 
+	result = strings.Replace(result, " ", ".", -1)
+
 	GenGuardianProject(result)
 }
 
