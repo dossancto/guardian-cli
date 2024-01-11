@@ -1,6 +1,6 @@
-# Aspgen
+# Guardian CLI
 
-A dotnet-aspnet-codegenerator abstration to scaffold Asp.Net Core projects.
+Guardian CLI, used to geneate and help using guardian.
 
 > Just for Fun
 
