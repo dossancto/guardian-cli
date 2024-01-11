@@ -4,6 +4,7 @@ import (
 	"errors"
 	"fmt"
 	"log"
+	"strings"
 
 	"github.com/lu-css/guardian-cli/src/general"
 	"github.com/manifoldco/promptui"
@@ -112,8 +113,35 @@ func migrateProject(slnName string) {
 
 	switch i {
 	case (0):
-		return
+		NewMigration(GetMigrationName(), slnName)
 	case (1):
 		UpdateDatabase(slnName)
 	}
+}
+
+func GetMigrationName() string {
+	validate := func(input string) error {
+		if input == "" {
+			return errors.New("Blank Text")
+		}
+
+		if strings.Contains(input, " ") {
+			return errors.New("Can't have space")
+		}
+
+		return nil
+	}
+
+	prompt := promptui.Prompt{
+		Label:    "Migration name",
+		Validate: validate,
+	}
+
+	result, err := prompt.Run()
+
+	if err != nil {
+		log.Fatalf("Prompt failed %v\n", err)
+	}
+
+	return result
 }
