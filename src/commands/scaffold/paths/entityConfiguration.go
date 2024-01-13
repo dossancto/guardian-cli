@@ -8,7 +8,7 @@ import (
 )
 
 func GetEntityConfigurationFilePath(config structs.FeatureConfiguration) string {
-	entitiesPath := GetEntitiesLayerPath(config)
+	entitiesPath := GetEntityConfigurationLayerPath(config)
 
 	fileName := fmt.Sprintf("%sConfiguration.cs", config.EntityName)
 
@@ -16,5 +16,5 @@ func GetEntityConfigurationFilePath(config structs.FeatureConfiguration) string 
 }
 
 func GetEntityConfigurationLayerPath(config structs.FeatureConfiguration) string {
-	return GetApplicationFeatureLayer(config, "Data")
+	return GetInfraFeatureLayer(config, "Configurations")
 }

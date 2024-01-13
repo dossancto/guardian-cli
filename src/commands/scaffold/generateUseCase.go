@@ -8,9 +8,9 @@ import (
 
 func createRepositoryInterface(config structs.FeatureConfiguration) string {
 	tmpl := `
-using Aether.Eggs.Application.Features.{{.FeatureName}}.Entities;
+using {{.SlnName}}.Application.Features.{{.FeatureName}}.Entities;
 
-namespace Aether.Eggs.Application.Features.{{.FeatureName}}.Data;
+namespace {{.SlnName}}.Application.Features.{{.FeatureName}}.Data;
 
 /// <summary>
 /// Defines operations for a {{.EntityName}} repository.

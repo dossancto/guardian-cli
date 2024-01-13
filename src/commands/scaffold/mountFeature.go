@@ -21,10 +21,12 @@ func generateInterfaceRepository(config structs.FeatureConfiguration) {
 }
 
 func generateEntities(config structs.FeatureConfiguration) {
-	config.Fields = append(config.Fields, structs.FeatureClass{
+	idField := structs.FeatureClass{
 		FieldName: "Id",
 		FieldType: "string",
-	})
+	}
+
+	config.Fields = append([]structs.FeatureClass{idField}, config.Fields...)
 
 	content := generateEntityClass(config)
 
