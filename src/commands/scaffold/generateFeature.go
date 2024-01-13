@@ -6,10 +6,12 @@ import (
 	"os"
 	"strings"
 
+	"github.com/lu-css/guardian-cli/src/commands/scaffold/structs"
+
 	"github.com/samber/lo"
 )
 
-func buildProperty(field FeatureClass) string {
+func buildProperty(field structs.FeatureClass) string {
 	isString := field.FieldType == "string"
 
 	useDefaultReference := ""
@@ -24,13 +26,13 @@ func buildProperty(field FeatureClass) string {
     /// </summary>
     /// <example>%s</example>
     public %s %s {get; set;} %s
-    `,field.FieldName, field.FieldName, field.FieldType, field.FieldName, useDefaultReference)
+    `, field.FieldName, field.FieldName, field.FieldType, field.FieldName, useDefaultReference)
 
 	return template
 }
 
-func generateEntityClass(config FeatureConfiguration) string {
-	fildStrs := lo.Map(config.Fields, func(field FeatureClass, _ int) string { return buildProperty(field) })
+func generateEntityClass(config structs.FeatureConfiguration) string {
+	fildStrs := lo.Map(config.Fields, func(field structs.FeatureClass, _ int) string { return buildProperty(field) })
 	fields := strings.Join(fildStrs, "\n\n\t")
 
 	template := fmt.Sprintf(`

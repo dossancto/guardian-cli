@@ -1,4 +1,4 @@
-package scaffold
+package structs
 
 type FeatureConfiguration struct {
 	FeatureName string
@@ -7,7 +7,3 @@ type FeatureConfiguration struct {
 	Fields      []FeatureClass
 }
 
-type FeatureClass struct {
-	FieldName string
-	FieldType string
-}

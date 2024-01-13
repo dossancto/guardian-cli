@@ -6,6 +6,7 @@ import (
 	"strings"
 
 	"github.com/lu-css/guardian-cli/src/commands/filters"
+	"github.com/lu-css/guardian-cli/src/commands/scaffold/structs"
 	"github.com/manifoldco/promptui"
 )
 
@@ -14,12 +15,12 @@ func HandleNewFeature(slnName string) {
 	CreateFeature(config)
 }
 
-func NewFeatureConfiguration(slnName string) FeatureConfiguration {
+func NewFeatureConfiguration(slnName string) structs.FeatureConfiguration {
 	featureName := getFeatureName()
 	entityName := getEntityName()
 	fields := getFields()
 
-	return FeatureConfiguration{
+	return structs.FeatureConfiguration{
 		FeatureName: featureName,
 		EntityName:  entityName,
 		SlnName:     slnName,
@@ -64,8 +65,8 @@ func paramValidate(text string) error {
 
 	return nil
 }
-func getParamsList(text string) []FeatureClass {
-	fields := []FeatureClass{}
+func getParamsList(text string) []structs.FeatureClass {
+	fields := []structs.FeatureClass{}
 
 	tokens := strings.Split(text, " ")
 
@@ -74,13 +75,13 @@ func getParamsList(text string) []FeatureClass {
 		fieldName := parts[0]
 		fieldType := parts[1]
 
-		fields = append(fields, FeatureClass{FieldName: fieldName, FieldType: fieldType})
+		fields = append(fields, structs.FeatureClass{FieldName: fieldName, FieldType: fieldType})
 	}
 
 	return fields
 }
 
-func getFields() []FeatureClass {
+func getFields() []structs.FeatureClass {
 	validate := func(input string) error {
 		myFilters := []filters.TextFilter{
 			filters.BlankTextFilter,

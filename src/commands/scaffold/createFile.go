@@ -2,18 +2,26 @@ package scaffold
 
 import (
 	"fmt"
+	"github.com/lu-css/guardian-cli/src/commands/scaffold/structs"
 	"log"
 	"os"
 )
 
-func getEntityFolderPath(config FeatureConfiguration) string {
-	var pathTemplate = "%s.Application/src/Features/%s/Entities/"
+func getEntityFolderPath(config structs.FeatureConfiguration, layer string) string {
+	var pathTemplate = "%s.Application/src/Features/%s/%s/"
 
-	return fmt.Sprintf(pathTemplate, config.SlnName, config.FeatureName)
+	return fmt.Sprintf(pathTemplate, config.SlnName, config.FeatureName, layer)
 }
 
-func getEntityPath(config FeatureConfiguration) string {
-  folder := getEntityFolderPath(config)
+func getDataFolderPath(config structs.FeatureConfiguration) string {
+	folder := getEntityFolderPath(config, "Data")
+	var pathTemplate = "%s/%s.cs"
+
+	return fmt.Sprintf(pathTemplate, folder, config.EntityName)
+}
+
+func getEntityPath(config structs.FeatureConfiguration) string {
+	folder := getEntityFolderPath(config, "Entities")
 	var pathTemplate = "%s/%s.cs"
 
 	return fmt.Sprintf(pathTemplate, folder, config.EntityName)
