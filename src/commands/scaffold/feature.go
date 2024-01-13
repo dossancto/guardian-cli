@@ -6,13 +6,14 @@ import (
 	"strings"
 
 	"github.com/lu-css/guardian-cli/src/commands/filters"
+	"github.com/lu-css/guardian-cli/src/commands/scaffold/mount"
 	"github.com/lu-css/guardian-cli/src/commands/scaffold/structs"
 	"github.com/manifoldco/promptui"
 )
 
 func HandleNewFeature(slnName string) {
 	config := NewFeatureConfiguration(slnName)
-	CreateFeature(config)
+	mount.CreateFeature(config)
 }
 
 func NewFeatureConfiguration(slnName string) structs.FeatureConfiguration {

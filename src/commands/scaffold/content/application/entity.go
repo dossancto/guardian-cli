@@ -1,17 +1,14 @@
-package scaffold
+package application
 
 import (
 	"fmt"
-	"log"
-	"os"
 	"strings"
 
 	"github.com/lu-css/guardian-cli/src/commands/scaffold/structs"
-
 	"github.com/samber/lo"
 )
 
-func buildProperty(field structs.FeatureClass) string {
+func GenerateProperty(field structs.FeatureClass) string {
 	isString := field.FieldType == "string"
 
 	useDefaultReference := ""
@@ -31,8 +28,8 @@ func buildProperty(field structs.FeatureClass) string {
 	return template
 }
 
-func generateEntityClass(config structs.FeatureConfiguration) string {
-	fildStrs := lo.Map(config.Fields, func(field structs.FeatureClass, _ int) string { return buildProperty(field) })
+func GenerateEntityClass(config structs.FeatureConfiguration) string {
+	fildStrs := lo.Map(config.Fields, func(field structs.FeatureClass, _ int) string { return GenerateProperty(field) })
 	fields := strings.Join(fildStrs, "\n\n\t")
 
 	template := fmt.Sprintf(`
@@ -48,13 +45,4 @@ public class %s
     `, config.SlnName, config.FeatureName, config.EntityName, config.EntityName, fields)
 
 	return template
-}
-
-func generateFeatureIfNotExists(path string) {
-	err := os.MkdirAll(path, os.ModePerm)
-
-	if err != nil {
-		log.Fatal(err)
-	}
-
 }

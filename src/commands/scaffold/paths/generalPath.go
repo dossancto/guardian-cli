@@ -24,6 +24,6 @@ func GetInfraFeaturePath(config structs.FeatureConfiguration) string {
 }
 
 func GetInfraFeatureLayer(config structs.FeatureConfiguration, layer string) string {
-	featurePath := GetApplicationFeaturePath(config)
+	featurePath := GetInfraFeaturePath(config)
 	return filepath.Join(featurePath, layer)
 }

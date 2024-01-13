@@ -32,7 +32,6 @@ public class EF{{.EntityName}}Repository : I{{.EntityName}}Repository
     public async Task Delete(string id)
     {
         var entity = await _context.{{.EntityName}}s.Where(x => x.Id == id).FirstOrDefaultAsync();
-        Console.WriteLine(entity?.Id ?? "User not found");
 
         if (entity is null)
             return;
