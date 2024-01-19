@@ -23,6 +23,7 @@ func createEntities(config structs.FeatureConfiguration) {
 	utils.CreateFile(path, content)
 }
 
+
 func createInterfaceRepository(config structs.FeatureConfiguration) {
 	content := application.GenerateRepositoryInterface(config)
 
@@ -31,3 +32,13 @@ func createInterfaceRepository(config structs.FeatureConfiguration) {
 
 	utils.CreateFile(entityPath, content)
 }
+
+func mountCreateUseCase(config structs.FeatureConfiguration){
+	content := application.GenerateUseCase(config)
+
+	entityPath := entity_path.GetCreateUseCaseFilePath(config)
+	utils.CreateFolderIfNotExists(entity_path.GetCreateUseCaseLayerPath(config))
+
+	utils.CreateFile(entityPath, content)
+}
+
