@@ -18,6 +18,8 @@ go build -o ./bin/guardian .
 
 # TODO
 
+- WRITE TESTS
+
 - Use Cases
 
 	- [ ] Generate Select Use Case
@@ -33,6 +35,8 @@ go build -o ./bin/guardian .
 	- [ ] Generate Management Controller
 
 	- [ ] Generate Get Controller
+
+	- [ ] Generate DTO Controller
 
 - Editing existing code
 

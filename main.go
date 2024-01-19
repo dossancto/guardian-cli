@@ -19,7 +19,7 @@ func main() {
 	if len(args) > 0 {
 		cmd := args[0]
 		generate.RunCommand(cmd, slnName)
-    return
+		return
 	}
 
 	generate.ListActions(inSlnProject, slnName)
