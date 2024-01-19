@@ -30,3 +30,15 @@ func GetCreateUseCaseFilePath(config structs.FeatureConfiguration) string {
 func GetCreateUseCaseLayerPath(config structs.FeatureConfiguration) string {
 	return GetApplicationFeatureLayer(config, "UseCases")
 }
+
+func GetUpdateUseCaseFilePath(config structs.FeatureConfiguration) string {
+	entitiesPath := GetUpdateUseCaseLayerPath(config)
+
+	fileName := fmt.Sprintf("Update%sUseCase.cs", config.EntityName)
+
+	return filepath.Join(entitiesPath, fileName)
+}
+
+func GetUpdateUseCaseLayerPath(config structs.FeatureConfiguration) string {
+	return GetApplicationFeatureLayer(config, "UseCases")
+}

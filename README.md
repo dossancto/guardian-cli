@@ -24,7 +24,7 @@ go build -o ./bin/guardian .
 
 	- [ ] Generate Select Use Case
 
-	- [ ] Generate Update Use Case
+	- [x] Generate Update Use Case
 
 	- [ ] Generate Delete Use Case
 

@@ -34,7 +34,7 @@ func createInterfaceRepository(config structs.FeatureConfiguration) {
 }
 
 func mountCreateUseCase(config structs.FeatureConfiguration){
-	content := application.GenerateUseCase(config)
+	content := application.GenerateCreateUseCase(config)
 
 	entityPath := entity_path.GetCreateUseCaseFilePath(config)
 	utils.CreateFolderIfNotExists(entity_path.GetCreateUseCaseLayerPath(config))
@@ -42,3 +42,12 @@ func mountCreateUseCase(config structs.FeatureConfiguration){
 	utils.CreateFile(entityPath, content)
 }
 
+
+func mountUpdateUseCase(config structs.FeatureConfiguration){
+	content := application.GenerateUpdateUseCase(config)
+
+	entityPath := entity_path.GetUpdateUseCaseFilePath(config)
+	utils.CreateFolderIfNotExists(entity_path.GetUpdateUseCaseLayerPath(config))
+
+	utils.CreateFile(entityPath, content)
+}
