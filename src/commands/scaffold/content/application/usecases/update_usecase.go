@@ -5,21 +5,9 @@ import (
 	"fmt"
 	"text/template"
 
+	"github.com/lu-css/guardian-cli/src/commands/scaffold/content/application"
 	"github.com/lu-css/guardian-cli/src/commands/scaffold/structs"
 )
-
-func GenerateUpdateDTO(config structs.FeatureConfiguration) string {
-	idField := structs.FeatureClass{
-		FieldName: "Id",
-		FieldType: "string",
-	}
-
-	config.Fields = append([]structs.FeatureClass{idField}, config.Fields...)
-
-	docs := fmt.Sprintf("Represents a data object for updating a %s", config.EntityName)
-	classname := fmt.Sprintf("Update%s", config.EntityName)
-	return generateDTO(docs, classname, config)
-}
 
 func GenerateUpdateUseCase(config structs.FeatureConfiguration) string {
 	tmpl := `
@@ -66,7 +54,15 @@ public class Update{{.EntityName}}UseCase
 	}
 
 	usecase := buf.String()
-	dto := GenerateUpdateDTO(config)
+
+	idField := structs.FeatureClass{
+		FieldName: "Id",
+		FieldType: "string",
+	}
+
+	config.Fields = append([]structs.FeatureClass{idField}, config.Fields...)
+
+	dto := application.GenerateUpdateDTO(config)
 
 	return fmt.Sprintf("%s\n%s", usecase, dto)
 }

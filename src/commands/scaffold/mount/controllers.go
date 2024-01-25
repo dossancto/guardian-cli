@@ -13,7 +13,7 @@ func mountControllers(config structs.FeatureConfiguration) {
 	}
 	mountMannageController(config)
 	mountSelectController(config)
-	// mountDtoController(config)
+	mountDtoController(config)
 	// mountDependencyInversionController(config)
 }
 
@@ -24,7 +24,7 @@ func mountControllerType(config structs.FeatureConfiguration, entityPath string,
 
 func mountMannageController(config structs.FeatureConfiguration) {
 	content := content.DependencyInjectionController(config)
-	entityPath := entity_path.ControllerManageFile(config)
+	entityPath := entity_path.ControllerDependencyInjectFile(config)
 	mountControllerType(config, entityPath, content)
 }
 
@@ -35,7 +35,7 @@ func mountSelectController(config structs.FeatureConfiguration) {
 }
 
 func mountDtoController(config structs.FeatureConfiguration) {
-	content := content.DependencyInjectionController(config)
+	content := content.DtoController(config)
 	entityPath := entity_path.ControllerDtoFile(config)
 	mountControllerType(config, entityPath, content)
 }

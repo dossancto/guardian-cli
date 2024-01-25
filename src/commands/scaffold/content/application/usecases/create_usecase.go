@@ -5,13 +5,14 @@ import (
 	"fmt"
 	"text/template"
 
+	"github.com/lu-css/guardian-cli/src/commands/scaffold/content/application"
 	"github.com/lu-css/guardian-cli/src/commands/scaffold/structs"
 )
 
 func GenerateCreateDTO(config structs.FeatureConfiguration) string {
 	docs := fmt.Sprintf("Represents a data object for creating a %s", config.EntityName)
 	classname := fmt.Sprintf("Create%s", config.EntityName)
-	return generateDTO(docs, classname, config)
+	return application.GenerateDTO(docs, classname, config)
 }
 
 func GenerateCreateUseCase(config structs.FeatureConfiguration) string {
