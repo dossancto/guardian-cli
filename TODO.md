@@ -16,7 +16,7 @@
 
 	- [ ] Generate Management Controller
 
-	- [ ] Generate Get Controller
+	- [x] Generate Get Controller
 
 	- [ ] Generate DTO Controller
 
