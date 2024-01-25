@@ -1,9 +1,10 @@
-package application
+package usecases
 
 import (
 	"fmt"
 	"strings"
 
+	"github.com/lu-css/guardian-cli/src/commands/scaffold/content/application"
 	"github.com/lu-css/guardian-cli/src/commands/scaffold/structs"
 	"github.com/samber/lo"
 )
@@ -29,7 +30,7 @@ func toModelMethod(action string, config structs.FeatureConfiguration) string {
 }
 
 func generateDTO(docs string, classname string, config structs.FeatureConfiguration) string {
-	fildStrs := lo.Map(config.Fields, func(field structs.FeatureClass, _ int) string { return GenerateProperty(field) })
+	fildStrs := lo.Map(config.Fields, func(field structs.FeatureClass, _ int) string { return application.GenerateProperty(field) })
 	fields := strings.Join(fildStrs, "\n\n\t")
 
 	convertMethod := toModelMethod("Create", config)

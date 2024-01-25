@@ -10,8 +10,8 @@ func CreateFeature(config structs.FeatureConfiguration) {
 	createInterfaceRepository(config)
 	createEntityConfiguration(config)
 	createRepositoryImpl(config)
-	mountCreateUseCase(config)
-  mountUpdateUseCase(config)
-  mountSelectUseCase(config)
-  mountDeleteUseCase(config)
+
+	mountUseCases(config)
+	// mountControllers(config)
 }
+

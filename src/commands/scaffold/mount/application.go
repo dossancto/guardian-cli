@@ -31,39 +31,3 @@ func createInterfaceRepository(config structs.FeatureConfiguration) {
 
 	utils.CreateFile(entityPath, content)
 }
-
-func mountCreateUseCase(config structs.FeatureConfiguration) {
-	content := application.GenerateCreateUseCase(config)
-
-	entityPath := entity_path.CreateFile(config)
-	utils.CreateFolderIfNotExists(entity_path.UseCaseLayer(config))
-
-	utils.CreateFile(entityPath, content)
-}
-
-func mountUpdateUseCase(config structs.FeatureConfiguration) {
-	content := application.GenerateUpdateUseCase(config)
-
-	entityPath := entity_path.UpdateFile(config)
-	utils.CreateFolderIfNotExists(entity_path.UseCaseLayer(config))
-
-	utils.CreateFile(entityPath, content)
-}
-
-func mountSelectUseCase(config structs.FeatureConfiguration) {
-	content := application.GenerateSelectUseCase(config)
-
-	entityPath := entity_path.SelectFile(config)
-	utils.CreateFolderIfNotExists(entity_path.UseCaseLayer(config))
-
-	utils.CreateFile(entityPath, content)
-}
-
-func mountDeleteUseCase(config structs.FeatureConfiguration) {
-	content := application.GenerateDeleteUseCase(config)
-
-	entityPath := entity_path.DeleteFile(config)
-	utils.CreateFolderIfNotExists(entity_path.UseCaseLayer(config))
-
-	utils.CreateFile(entityPath, content)
-}
