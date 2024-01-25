@@ -8,8 +8,11 @@ import (
 )
 
 func mountControllers(config structs.FeatureConfiguration) {
+	if !config.ScaffoldConfiguration.GenerateController {
+		return
+	}
 	mountMannageController(config)
-	// mountSelectController(config)
+	mountSelectController(config)
 	// mountDtoController(config)
 	// mountDependencyInversionController(config)
 }
@@ -26,7 +29,7 @@ func mountMannageController(config structs.FeatureConfiguration) {
 }
 
 func mountSelectController(config structs.FeatureConfiguration) {
-	content := content.DependencyInjectionController(config)
+	content := content.SelectController(config)
 	entityPath := entity_path.ControllerSelectFile(config)
 	mountControllerType(config, entityPath, content)
 }

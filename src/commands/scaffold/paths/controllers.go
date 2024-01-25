@@ -8,7 +8,8 @@ import (
 )
 
 func ControllersLayer(config structs.FeatureConfiguration) string {
-	return GetUILayer(config, "Controllers")
+	path := fmt.Sprintf("Controllers/%s", config.FeatureName)
+	return GetUILayer(config, path)
 }
 
 func ControllerItemPath(config structs.FeatureConfiguration, t string) string {

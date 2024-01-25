@@ -8,6 +8,7 @@ import (
 	"github.com/lu-css/guardian-cli/src/commands/filters"
 	"github.com/lu-css/guardian-cli/src/commands/scaffold/mount"
 	"github.com/lu-css/guardian-cli/src/commands/scaffold/structs"
+	"github.com/lu-css/guardian-cli/src/utils"
 	"github.com/manifoldco/promptui"
 )
 
@@ -20,12 +21,16 @@ func NewFeatureConfiguration(slnName string) structs.FeatureConfiguration {
 	featureName := getFeatureName()
 	entityName := getEntityName()
 	fields := getFields()
+	useControllers := getUseControllers()
 
 	return structs.FeatureConfiguration{
 		FeatureName: featureName,
 		EntityName:  entityName,
 		SlnName:     slnName,
 		Fields:      fields,
+		ScaffoldConfiguration: structs.ScaffoldConfiguration{
+			GenerateController: useControllers,
+		},
 	}
 }
 
@@ -127,4 +132,8 @@ func getEntityName() string {
 	}
 
 	return result
+}
+
+func getUseControllers() bool {
+	return utils.TrueOrFalse("Use controllers", false)
 }
