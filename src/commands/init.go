@@ -34,6 +34,7 @@ func GenGuardianProject() {
 	result = strings.Replace(result, " ", ".", -1)
 
 	createGuardianProject(result)
+  postGuardianCreate(result)
 }
 
 func createGuardianProject(projectName string) {
@@ -45,4 +46,10 @@ func createGuardianProject(projectName string) {
 	}
 
 	log.Println(string(output))
+}
+
+func postGuardianCreate(projectName string) {
+	log.Println("Generating Makefile...")
+	log.Println("Generating Dockerfile...")
+	log.Println("Generating Readme...")
 }
