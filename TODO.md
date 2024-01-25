@@ -18,7 +18,7 @@
 
 	- [x] Generate Get Controller
 
-	- [ ] Generate DTO Controller
+	- [x] Generate DTO Controller
 
 - Editing existing code
 
