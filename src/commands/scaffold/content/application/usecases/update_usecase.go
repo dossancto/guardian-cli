@@ -54,7 +54,7 @@ public class Update{{.EntityName}}UseCase
 }
 
   `
-	t, err := template.New("createEntityUseCase").Parse(tmpl)
+	t, err := template.New("updateEntityUseCase").Parse(tmpl)
 	if err != nil {
 		panic(err)
 	}

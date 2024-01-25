@@ -8,7 +8,7 @@ import (
 )
 
 func DependencyInjectionController(config FeatureConfiguration) string {
-	t, err := template.New("deleteEntityUseCase").Parse(deleteUseCaseTemplate)
+	t, err := template.New("controllerDependencyInjection").Parse(dependencyInjectTemplate)
 
 	if err != nil {
 		panic(err)
@@ -26,7 +26,7 @@ func DependencyInjectionController(config FeatureConfiguration) string {
 	return usecase
 }
 
-var deleteUseCaseTemplate = `using Microsoft.AspNetCore.Mvc;
+var dependencyInjectTemplate = `using Microsoft.AspNetCore.Mvc;
 
 using {{.SlnName}}.Application.Features.{{.FeatureName}}.UseCases;
 

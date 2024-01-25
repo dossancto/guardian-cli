@@ -12,7 +12,7 @@
 
 - Controllers
 
-	- [ ] Generate Dependency Injection Controller
+	- [x] Generate Dependency Injection Controller
 
 	- [ ] Generate Management Controller
 

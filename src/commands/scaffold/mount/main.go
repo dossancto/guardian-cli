@@ -12,6 +12,6 @@ func CreateFeature(config structs.FeatureConfiguration) {
 	createRepositoryImpl(config)
 
 	mountUseCases(config)
-	// mountControllers(config)
+	mountControllers(config)
 }
 

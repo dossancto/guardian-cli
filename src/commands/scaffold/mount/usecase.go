@@ -22,23 +22,23 @@ func mountUseCaseType(config structs.FeatureConfiguration, entityPath string, co
 func mountCreateUseCase(config structs.FeatureConfiguration) {
 	content := content.GenerateCreateUseCase(config)
 	entityPath := entity_path.CreateFile(config)
-	mountControllerType(config, entityPath, content)
+	mountUseCaseType(config, entityPath, content)
 }
 
 func mountUpdateUseCase(config structs.FeatureConfiguration) {
-	content := content.GenerateUpdateDTO(config)
+	content := content.GenerateUpdateUseCase(config)
 	entityPath := entity_path.UpdateFile(config)
-	mountControllerType(config, entityPath, content)
+	mountUseCaseType(config, entityPath, content)
 }
 
 func mountSelectUseCase(config structs.FeatureConfiguration) {
 	content := content.GenerateSelectUseCase(config)
 	entityPath := entity_path.SelectFile(config)
-	mountControllerType(config, entityPath, content)
+	mountUseCaseType(config, entityPath, content)
 }
 
 func mountDeleteUseCase(config structs.FeatureConfiguration) {
 	content := content.GenerateDeleteUseCase(config)
 	entityPath := entity_path.DeleteFile(config)
-	mountControllerType(config, entityPath, content)
+	mountUseCaseType(config, entityPath, content)
 }
