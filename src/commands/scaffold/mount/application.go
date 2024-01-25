@@ -23,7 +23,6 @@ func createEntities(config structs.FeatureConfiguration) {
 	utils.CreateFile(path, content)
 }
 
-
 func createInterfaceRepository(config structs.FeatureConfiguration) {
 	content := application.GenerateRepositoryInterface(config)
 
@@ -33,21 +32,38 @@ func createInterfaceRepository(config structs.FeatureConfiguration) {
 	utils.CreateFile(entityPath, content)
 }
 
-func mountCreateUseCase(config structs.FeatureConfiguration){
+func mountCreateUseCase(config structs.FeatureConfiguration) {
 	content := application.GenerateCreateUseCase(config)
 
-	entityPath := entity_path.GetCreateUseCaseFilePath(config)
-	utils.CreateFolderIfNotExists(entity_path.GetCreateUseCaseLayerPath(config))
+	entityPath := entity_path.CreateFile(config)
+	utils.CreateFolderIfNotExists(entity_path.UseCaseLayer(config))
 
 	utils.CreateFile(entityPath, content)
 }
 
-
-func mountUpdateUseCase(config structs.FeatureConfiguration){
+func mountUpdateUseCase(config structs.FeatureConfiguration) {
 	content := application.GenerateUpdateUseCase(config)
 
-	entityPath := entity_path.GetUpdateUseCaseFilePath(config)
-	utils.CreateFolderIfNotExists(entity_path.GetUpdateUseCaseLayerPath(config))
+	entityPath := entity_path.UpdateFile(config)
+	utils.CreateFolderIfNotExists(entity_path.UseCaseLayer(config))
+
+	utils.CreateFile(entityPath, content)
+}
+
+func mountSelectUseCase(config structs.FeatureConfiguration) {
+	content := application.GenerateSelectUseCase(config)
+
+	entityPath := entity_path.SelectFile(config)
+	utils.CreateFolderIfNotExists(entity_path.UseCaseLayer(config))
+
+	utils.CreateFile(entityPath, content)
+}
+
+func mountDeleteUseCase(config structs.FeatureConfiguration) {
+	content := application.GenerateDeleteUseCase(config)
+
+	entityPath := entity_path.DeleteFile(config)
+	utils.CreateFolderIfNotExists(entity_path.UseCaseLayer(config))
 
 	utils.CreateFile(entityPath, content)
 }

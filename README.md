@@ -33,11 +33,11 @@ make build
 
 - Use Cases
 
-	- [ ] Generate Select Use Case
+	- [x] Generate Select Use Case
 
 	- [x] Generate Update Use Case
 
-	- [ ] Generate Delete Use Case
+	- [x] Generate Delete Use Case
 
 - Controllers
 
@@ -67,4 +67,4 @@ make build
 
 - Repositories
 
-	- [ ] Fix ApplicationDbContext Class Name. In some locations, the classname has a typo.
+	- [x] Fix ApplicationDbContext Class Name. In some locations, the classname has a typo.

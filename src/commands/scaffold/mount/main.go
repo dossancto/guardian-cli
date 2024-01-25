@@ -12,4 +12,6 @@ func CreateFeature(config structs.FeatureConfiguration) {
 	createRepositoryImpl(config)
 	mountCreateUseCase(config)
   mountUpdateUseCase(config)
+  mountSelectUseCase(config)
+  mountDeleteUseCase(config)
 }
