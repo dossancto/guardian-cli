@@ -4,17 +4,28 @@ Guardian CLI, used to geneate and help using guardian.
 
 > Just for Fun
 
-# Run
-
-```sh
-go run
-```
 
 # Build
 
 ```sh
-go build -o ./bin/guardian .
+make build
 ```
+
+# Instalation
+
+> Required [guardian dotnet template](https://github.com/lu-css/Guardian-Template)
+
+- Buld the application
+
+    ```sh
+    make build
+    ```
+
+- Install
+
+    ```sh
+    make install
+    ```
 
 # TODO
 
