@@ -5,13 +5,18 @@ Guardian CLI, used to geneate and help using guardian.
 > Just for Fun
 
 
-# Build
+## Build
 
 ```sh
 make build
 ```
+## Architecture
 
-# Instalation
+The modules relation.
+
+![DEPENDENCY TREE](https://github.com/lu-css/guardian-cli/assets/97306254/822f1a10-a823-4d9e-9cd0-a3f0dab98413)
+
+## Instalation
 
 > Required [guardian dotnet template](https://github.com/lu-css/Guardian-Template)
 
@@ -27,6 +32,6 @@ make build
     make install
     ```
 
-# TODO
+## TODO
 
 Check [TODO](https://github.com/lu-css/guardian-cli/blob/main/TODO.md) to check the development
