@@ -4,6 +4,9 @@ Guardian CLI, used to geneate and help using guardian.
 
 > Just for Fun
 
+# Demo (Project creation)
+
+![createdemo](https://github.com/lu-css/guardian-cli/assets/97306254/8419f2ff-0a63-47b2-b2a6-f3c18bc61adc)
 
 ## Build
 
